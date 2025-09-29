@@ -1,140 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tony Kiplagat Cheptoo - Cybersecurity Portfolio</title>
   <style>
-    /* --- Existing CSS kept --- */
-    /* (I kept all your styles the same, only added .lab-card for new section) */
+    /* ===== Base Styles ===== */
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      color:#333;
+      background:#f5f7fa;
+      line-height:1.6;
+    }
+    a {color:#667eea; text-decoration:none;}
+    a:hover {text-decoration:underline;}
+
+    /* ===== Navbar ===== */
+    nav {
+      position:sticky; top:0;
+      background:#fff;
+      box-shadow:0 2px 6px rgba(0,0,0,0.05);
+      padding:15px 30px;
+      display:flex; justify-content:space-between; align-items:center;
+      z-index:1000;
+    }
+    nav .logo {font-weight:700; font-size:1.2em; color:#667eea;}
+    nav ul {display:flex; gap:20px; list-style:none;}
+    nav li a {font-size:0.95em; font-weight:500; color:#333;}
+    nav li a:hover {color:#667eea;}
+
+    /* ===== Container & Sections ===== */
+    .container {max-width:1100px; margin:auto; padding:60px 20px;}
+    section {margin-bottom:60px;}
+    h2.section-title {
+      font-size:1.8em; margin-bottom:25px; color:#333;
+      position:relative; padding-left:15px;
+    }
+    h2.section-title::before {
+      content:''; position:absolute; left:0; top:50%; transform:translateY(-50%);
+      width:5px; height:25px; border-radius:2px;
+      background:linear-gradient(135deg,#667eea,#764ba2);
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      display:flex; flex-direction:column; align-items:center; text-align:center;
+      background:linear-gradient(135deg,#667eea,#764ba2);
+      color:#fff; padding:80px 20px; border-radius:0 0 40px 40px;
+    }
+    .hero .profile {
+      width:140px; height:140px; border-radius:50%;
+      background:#fff; color:#667eea;
+      display:flex; justify-content:center; align-items:center;
+      font-size:50px; font-weight:700; margin-bottom:20px;
+    }
+    .hero h1 {font-size:2.5em; margin-bottom:10px;}
+    .hero p.tagline {font-size:1.1em; opacity:0.9; max-width:600px;}
+
+    /* ===== Resume Grid ===== */
+    .resume-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px;}
+    .resume-card {
+      background:#fff; padding:20px; border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
+    }
+    .resume-card h3 {margin-bottom:10px; color:#667eea;}
+
+    /* ===== Skills ===== */
+    .skills {display:flex; flex-wrap:wrap; gap:10px;}
+    .skill-tag {
+      background:rgba(102,126,234,0.1); border:1px solid rgba(102,126,234,0.3);
+      border-radius:20px; padding:6px 14px; font-size:0.9em; color:#444;
+    }
+
+    /* ===== Projects ===== */
+    .projects-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px;}
+    .project-card {
+      background:#fff; border-radius:12px; padding:20px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
+      transition:transform .2s;
+    }
+    .project-card:hover {transform:translateY(-5px);}
+    .project-card h3 {margin-bottom:10px; color:#667eea;}
+
+    /* ===== Labs ===== */
     .lab-card {
-      background: #f8f9fc;
-      border-radius: 15px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      background:#fff; border-radius:12px; padding:20px; margin-bottom:20px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
     }
-    .lab-card h3 {
-      margin-bottom: 10px;
-      color: #333;
-    }
-    .lab-card p {
-      margin-bottom: 8px;
-      font-size: 0.95em;
-      color: #555;
-    }
-    .screenshot {
-      margin-top: 10px;
-      max-width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    .lab-card h3 {color:#667eea; margin-bottom:8px;}
+    .lab-card ul {margin-left:20px; margin-bottom:10px;}
+    .lab-card img {max-width:100%; border-radius:8px; margin-top:10px;}
+
+    /* ===== Contact ===== */
+    .contact-list {list-style:none; padding:0;}
+    .contact-list li {margin-bottom:10px; font-size:0.95em;}
+
+    /* ===== Footer ===== */
+    footer {
+      text-align:center; padding:20px; background:#fff; color:#666;
+      border-top:1px solid #eee; font-size:0.9em;
     }
   </style>
 </head>
 <body>
+  <!-- ===== Navbar ===== -->
+  <nav>
+    <div class="logo">Tony Cheptoo</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#labs">Labs</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <section id="home" class="hero">
+    <div class="profile">T</div>
+    <h1>Tony Kiplagat Cheptoo</h1>
+    <p class="tagline">Cybersecurity Specialist • Cloud & AI Security • CompTIA Security+ Certified</p>
+  </section>
+
   <div class="container">
-    <div class="card">
-      <!-- ===== Header / Home ===== -->
-      <div class="header">
-        <div class="profile-image">T</div>
-        <h1 class="name">Tony Kiplagat Cheptoo</h1>
-        <p class="title">Cybersecurity Specialist | Cloud & AI Security | CompTIA Security+ Certified</p>
-        <div class="contact-info">
-          <div class="contact-item">📧 tony.cheptoo32@gmail.com</div>
-          <div class="contact-item">📱 +254 703 988 098</div>
-          <div class="contact-item">🌐 <a href="https://linkedin.com/in/tonykiplagatcheptoo" target="_blank">LinkedIn</a></div>
-          <div class="contact-item">💻 <a href="https://github.com/cheptoo-tk" target="_blank">GitHub</a></div>
-          <div class="contact-item">📍 Nairobi, Kenya</div>
+
+    <!-- ===== About ===== -->
+    <section>
+      <h2 class="section-title">About Me</h2>
+      <p>
+        I am a cybersecurity specialist with a First-Class degree in Computer Networks and Cybersecurity (Strathmore University, GPA 3.91). 
+        I recently completed an exchange program at KTH Royal Institute of Technology in Stockholm, specializing in cryptography and hardware security. 
+        My work at the Communications Authority of Kenya, including contributions to KE-CIRT and regional frameworks, has given me both hands-on and strategic experience in digital risk management.
+      </p>
+    </section>
+
+    <!-- ===== Resume ===== -->
+    <section id="resume">
+      <h2 class="section-title">Resume Outline</h2>
+      <div class="resume-grid">
+        <div class="resume-card">
+          <h3>Education</h3>
+          <p><strong>Strathmore University</strong> — BSc Computer Networks & Cybersecurity (First Class, GPA 3.91, 2025)</p>
+          <p><strong>KTH Royal Institute of Technology</strong> — Exchange Program in Cybersecurity (Jan–Jun 2025)</p>
         </div>
-      </div>
-
-      <!-- ===== About ===== -->
-      <div class="section">
-        <h2>About Me</h2>
-        <p class="about-text">
-          I am a cybersecurity specialist with a First-Class degree in Computer Networks and Cybersecurity (Strathmore University, GPA 3.91). 
-          I recently completed an exchange program at KTH Royal Institute of Technology in Stockholm, specializing in cryptography and hardware security. 
-          My work at the Communications Authority of Kenya, including contributions to KE-CIRT and regional frameworks, has given me both hands-on and strategic experience in digital risk management.
-        </p>
-      </div>
-
-      <!-- ===== Resume ===== -->
-      <div class="section">
-        <h2>Resume Outline</h2>
-        <p class="about-text"><strong>Education:</strong> Strathmore University — BSc. Computer Networks & Cybersecurity (First Class, GPA 3.91), Graduated 2025. <br>KTH Royal Institute of Technology (Sweden) — Exchange Program, Cybersecurity, Jan–Jun 2025.</p>
-        <p class="about-text"><strong>Work Experience:</strong> Cybersecurity Intern — Communications Authority of Kenya (Jan–Apr 2024). Hands-on in vulnerability scans, SIEM analysis, and PKI projects.</p>
-        <p class="about-text"><strong>Certifications:</strong> CompTIA Security+, Cisco CCNA 1 & 2, APCERT Incident Handling</p>
-        <p class="about-text"><strong>Skills:</strong> Python, PowerShell, Ansible, Wireshark, Nmap, Splunk, Nessus, Docker, Google Apps Script, DistilBERT, Cloud Security (AWS, Azure, GCP)</p>
-      </div>
-
-      <!-- ===== Projects ===== -->
-      <div class="section">
-        <h2>Projects</h2>
-        <div class="projects-grid">
-          <div class="project-card">
-            <h3>Phishing Detection System</h3>
-            <p>AI-powered phishing classifier using DistilBERT + Gmail automation.</p>
-            <ul>
-              <li>99.58% detection accuracy</li>
-              <li>Automated Gmail classification</li>
-              <li>Chrome extension for user reporting</li>
-            </ul>
-            <p><a href="https://github.com/cheptoo-tk/phishing-email-detection-distilbert-gas" target="_blank" style="color:white;">View Repo</a></p>
-          </div>
-          <div class="project-card">
-            <h3>Cloud Vulnerability Assessment</h3>
-            <p>Scanning & visualization with Nessus, VulnWhisperer, and ELK Stack.</p>
-            <ul>
-              <li>Automated CVE aggregation</li>
-              <li>Kibana dashboards for insights</li>
-            </ul>
-            <p><a href="https://github.com/cheptoo-tk/OSVulnerabilityAssessmentandVisualizationTool" target="_blank" style="color:white;">View Repo</a></p>
-          </div>
-          <div class="project-card">
-            <h3>National PKI & EACO Cybersecurity</h3>
-            <p>Worked with KE-CIRT & EACO to establish regional frameworks and organize Kenya’s national PKI forum.</p>
-            <div class="project-tech"><span class="tech-tag">PKI</span><span class="tech-tag">Policy</span><span class="tech-tag">Digital Trust</span></div>
+        <div class="resume-card">
+          <h3>Experience</h3>
+          <p><strong>Cybersecurity Intern</strong> — Communications Authority of Kenya (Jan–Apr 2024)</p>
+          <ul><li>Led vulnerability scans and CVE remediation</li><li>Supported KE-CIRT SOC operations</li><li>Contributed to EACO PKI frameworks</li></ul>
+        </div>
+        <div class="resume-card">
+          <h3>Certifications</h3>
+          <p>CompTIA Security+ (Active)</p>
+          <p>Cisco CCNA 1 & 2</p>
+          <p>APCERT Incident Handling</p>
+        </div>
+        <div class="resume-card">
+          <h3>Skills</h3>
+          <div class="skills">
+            <span class="skill-tag">Python</span><span class="skill-tag">PowerShell</span>
+            <span class="skill-tag">Wireshark</span><span class="skill-tag">Nmap</span>
+            <span class="skill-tag">Splunk</span><span class="skill-tag">Docker</span>
+            <span class="skill-tag">DistilBERT</span><span class="skill-tag">AWS/Azure/GCP</span>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- ===== Lab Challenges ===== -->
-      <div class="section">
-        <h2>Lab Challenges</h2>
-        <div class="lab-card">
-          <h3>Dead Drop Protocol — Maldoc Analysis</h3>
-          <p><strong>Problem:</strong> Identify malicious document used in compromise.</p>
-          <p><strong>Approach:</strong> Used oledump & YARA to extract and analyze macros.</p>
-          <p><strong>Tools:</strong> Wireshark, oledump, Python</p>
-          <p><strong>Lessons:</strong> Correlated macro payload with C2 activity.</p>
-          <img src="screenshots/maldoc.png" alt="Maldoc Analysis Screenshot" class="screenshot"/>
+    <!-- ===== Projects ===== -->
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Phishing Detection System</h3>
+          <p>AI-powered phishing classifier using DistilBERT + Gmail automation.</p>
+          <ul><li>99.58% detection accuracy</li><li>Automated Gmail classification</li><li>Chrome extension for user reporting</li></ul>
+          <a href="https://github.com/cheptoo-tk/phishing-email-detection-distilbert-gas" target="_blank">View Repo</a>
         </div>
-        <div class="lab-card">
-          <h3>ChipWhisperer AES Key Extraction</h3>
-          <p><strong>Problem:</strong> Recover AES key from power traces.</p>
-          <p><strong>Approach:</strong> Performed CPA attack and brute-forced final byte.</p>
-          <p><strong>Tools:</strong> ChipWhisperer CW303, Python</p>
-          <p><strong>Lessons:</strong> Understood leakage and hardware countermeasures.</p>
-          <img src="screenshots/chipwhisperer.png" alt="ChipWhisperer Screenshot" class="screenshot"/>
+        <div class="project-card">
+          <h3>Cloud Vulnerability Assessment</h3>
+          <p>Scanning & visualization with Nessus, VulnWhisperer, and ELK Stack.</p>
+          <ul><li>Automated CVE aggregation</li><li>Kibana dashboards for insights</li></ul>
+          <a href="https://github.com/cheptoo-tk/OSVulnerabilityAssessmentandVisualizationTool" target="_blank">View Repo</a>
+        </div>
+        <div class="project-card">
+          <h3>National PKI & EACO Cybersecurity</h3>
+          <p>Worked with KE-CIRT & EACO to establish regional frameworks and organize Kenya’s national PKI forum.</p>
         </div>
       </div>
+    </section>
 
-      <!-- ===== Contact ===== -->
-      <div class="section">
-        <h2>Contact</h2>
-        <p class="about-text">Let’s connect for collaborations, research, or opportunities:</p>
+    <!-- ===== Lab Challenges ===== -->
+    <section id="labs">
+      <h2 class="section-title">Lab Challenges</h2>
+      <div class="lab-card">
+        <h3>Dead Drop Protocol — Maldoc Analysis</h3>
         <ul>
-          <li>Email: <a href="mailto:tony.cheptoo32@gmail.com">tony.cheptoo32@gmail.com</a></li>
-          <li>Phone: +254 703 988 098</li>
-          <li>LinkedIn: <a href="https://linkedin.com/in/tonykiplagatcheptoo" target="_blank">linkedin.com/in/tonykiplagatcheptoo</a></li>
-          <li>GitHub: <a href="https://github.com/cheptoo-tk" target="_blank">github.com/cheptoo-tk</a></li>
+          <li><strong>Problem:</strong> Identify malicious document used in compromise.</li>
+          <li><strong>Approach:</strong> Analyzed macros with oledump & YARA.</li>
+          <li><strong>Tools:</strong> Wireshark, oledump, Python</li>
+          <li><strong>Lessons:</strong> Correlated macro payload with C2 activity.</li>
         </ul>
+        <img src="screenshots/maldoc.png" alt="Maldoc Analysis Screenshot">
       </div>
+      <div class="lab-card">
+        <h3>ChipWhisperer AES Key Extraction</h3>
+        <ul>
+          <li><strong>Problem:</strong> Recover AES key from power traces.</li>
+          <li><strong>Approach:</strong> Performed CPA and brute-forced last byte.</li>
+          <li><strong>Tools:</strong> ChipWhisperer CW303, Python</li>
+          <li><strong>Lessons:</strong> Learned about side-channel leakage & countermeasures.</li>
+        </ul>
+        <img src="screenshots/chipwhisperer.png" alt="ChipWhisperer Screenshot">
+      </div>
+    </section>
 
-      <div class="footer">
-        <p>© 2025 Tony Kiplagat Cheptoo — Cybersecurity Portfolio</p>
-      </div>
-    </div>
+    <!-- ===== Contact ===== -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p>Let’s connect for collaborations, research, or opportunities:</p>
+      <ul class="contact-list">
+        <li>Email: <a href="mailto:tony.cheptoo32@gmail.com">tony.cheptoo32@gmail.com</a></li>
+        <li>Phone: +254 703 988 098</li>
+        <li>LinkedIn: <a href="https://linkedin.com/in/tonykiplagatcheptoo" target="_blank">linkedin.com/in/tonykiplagatcheptoo</a></li>
+        <li>GitHub: <a href="https://github.com/cheptoo-tk" target="_blank">github.com/cheptoo-tk</a></li>
+      </ul>
+    </section>
+
   </div>
+
+  <footer>
+    © 2025 Tony Kiplagat Cheptoo — Cybersecurity Portfolio
+  </footer>
 </body>
 </html>
